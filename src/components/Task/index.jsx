@@ -17,7 +17,7 @@ export default function Task({ title, details, time, difficulty, status, onChang
     <section class="task">
       <h2>{title}</h2>
       <p>{details}</p>
-      <Difficulty totalStars={10} selectedStars={difficulty} onRate={onChangeDifficulty} />
+      <Difficulty totalStars={10} selectedStars={difficulty} onRate={onChangeDifficulty} status={status}/>
       <p>Termin: {formattedTime}</p>
       <p>Status: {status}</p>
 

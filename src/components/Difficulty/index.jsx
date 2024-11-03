@@ -4,14 +4,14 @@ import '../../App.css'
 
 const createArray = length => [...Array(length)];
 
-export default function Difficulty({ totalStars = 10, selectedStars = 0, onRate = f => f }) {
+export default function Difficulty({ totalStars = 10, selectedStars = 0, onRate = f => f, status}) {
     return (
         <div className="difficulty">
             {createArray(totalStars).map((_, i) => (
                 <Star
                     key={i}
                     selected={selectedStars > i}
-                    onSelect={() => onRate(i + 1)}
+                    onSelect={() => status === "oczekujące" && onRate(i + 1)}
                 />
             ))}
         </div>

@@ -33,6 +33,7 @@ export default function AddTaskForm({ onNewTask = f => f }) {
                 totalStars={10}
                 selectedStars={difficulty}
                 onRate={setDifficulty}
+                status = "oczekujące" //default for new tasks
             />
             <button>Dodaj</button>
         </form>
