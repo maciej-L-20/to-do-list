@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "../Task";
 
-export default function TaskList({ tasks = [], onToggleStatus }) {
+export default function TaskList({ tasks = [], onChangeStatus, onRemoveTask }) {
   if (!tasks.length) return <div>Brak zadań.</div>;
   return (
     <div>
@@ -9,7 +9,8 @@ export default function TaskList({ tasks = [], onToggleStatus }) {
         <Task
           key={task.id}
           {...task}
-          onToggleStatus={() => onToggleStatus(task.id)}
+          onChangeStatus={() => onChangeStatus(task.id)}
+          onRemoveTask={()=>onRemoveTask(task.id)}
         />
       ))}
     </div>

@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 export default function useTasks(initialTasks) {
   const [tasks, setTasks] = useState(initialTasks);
 
-  const toggleTaskStatus = (id) => {
+  // Changing tasks status
+  const changeTaskStatus = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
         if (task.id === id && task.status === "oczekujące") {
@@ -18,16 +19,16 @@ export default function useTasks(initialTasks) {
     setTasks((prevTasks) => [...prevTasks, newTask]);
   };
 
+  const removeTask = (id) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
+  // Checking every minute if a task is overdue 
   useEffect(() => {
-    // Uruchamiamy co 5 minut (300000 ms)
     const intervalId = setInterval(checkOverdueTasks,60000);
-  
-    // Pierwsze wywołanie przy montowaniu komponentu
     checkOverdueTasks();
-  
-    // Czyszczenie interwału przy odmontowaniu komponentu
     return () => clearInterval(intervalId);
-  }, []);
+  }, [tasks]);
 
   const checkOverdueTasks = () =>
   {
@@ -47,5 +48,5 @@ export default function useTasks(initialTasks) {
   }
 
 
-  return { tasks, toggleTaskStatus, addTask };
+  return {tasks, changeTaskStatus, addTask, removeTask};
 }

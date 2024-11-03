@@ -1,8 +1,8 @@
 import React from "react";
 import Difficulty from "../Difficulty";
 
-export default function Task({ title, details, time, difficulty, status, onToggleStatus }) {
-  // Date and time con
+export default function Task({ title, details, time, difficulty, status, onChangeStatus, onRemoveTask }) {
+  // Date and time connection and formatting
   const formattedTime = time ? new Date(time).toLocaleString("pl-PL", {
     year: "numeric",
     month: "2-digit",
@@ -20,7 +20,10 @@ export default function Task({ title, details, time, difficulty, status, onToggl
       <p>Status: {status}</p>
 
       {status === "oczekujące" && (
-          <button onClick={onToggleStatus}>Oznacz jako wykonane</button>
+          <button onClick={onChangeStatus}>Oznacz jako wykonane</button>
+      )}
+      {(status === "wykonane" || status === "przeterminowane") && (
+          <button onClick={onRemoveTask}>Usuń zadanie</button>
       )}
     </section>
   );

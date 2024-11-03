@@ -6,7 +6,7 @@ import AddTaskForm from './components/AddTaskForm/index.jsx';
 import { v4 } from 'uuid';
 
 function App() {
-  const { tasks, toggleTaskStatus, addTask } = useTasks(taskData);
+  const {tasks, changeTaskStatus, addTask, removeTask} = useTasks(taskData);
 
   return (
     <>
@@ -19,12 +19,12 @@ function App() {
             time: dateTime,
             difficulty: difficulty,
             status: "oczekujące",
-            onToggleStatus: toggleTaskStatus
+            onToggleStatus: changeTaskStatus
           };
           addTask(newTask);
         }}
       />
-      <TaskList tasks={tasks} onToggleStatus={toggleTaskStatus} />
+      <TaskList tasks={tasks} onChangeStatus={changeTaskStatus} onRemoveTask={removeTask}/>
     </>
   );
 }
