@@ -11,8 +11,8 @@ export default function TaskList({ tasks = [], onChangeStatus, onRemoveTask, onC
           key={task.id}
           {...task}
           onChangeStatus={() => onChangeStatus(task.id)}
-          onRemoveTask={()=>onRemoveTask(task.id)}
-          onChangeDifficulty={(newDifficulty)=>onChangeDifficulty(task.id,newDifficulty)}
+          onRemoveTask={() => onRemoveTask(task.id)}
+          onChangeDifficulty={(newDifficulty) => onChangeDifficulty(task.id, newDifficulty)}
         />
       ))}
     </div>

@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 
-export default function useTasks (initialTasks){
+export default function useTasks(initialTasks) {
   const [tasks, setTasks] = useState(initialTasks);
 
-  // Changing tasks status
   const changeTaskStatus = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
         if (task.id === id) {
-          if (task.status === "oczekujące"){
+          if (task.status === "oczekujące") {
             return { ...task, status: "wykonane" }
           }
           if (task.status === "wykonane") {
@@ -30,20 +29,17 @@ export default function useTasks (initialTasks){
 
   // Checking every minute if a task is overdue 
   useEffect(() => {
-    const intervalId = setInterval(checkOverdueTasks,60000);
+    const intervalId = setInterval(checkOverdueTasks, 60000);
     checkOverdueTasks();
     return () => clearInterval(intervalId);
   }, [tasks]);
 
-  const checkOverdueTasks = () =>
-  {
+  const checkOverdueTasks = () => {
     const now = new Date().getTime();
 
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
         const dueDate = new Date(task.time).getTime();
-        console.log('NOW: ' + now);
-        console.log(task.title + ': ' + task.time);
         if (task.status === "oczekujące" && dueDate < now) {
           return { ...task, status: "przeterminowane" };
         }
@@ -53,12 +49,12 @@ export default function useTasks (initialTasks){
   }
   const changeTaskDifficulty = (id, newDifficulty) => {
     setTasks((prevTasks) =>
-      prevTasks.map((task) => 
+      prevTasks.map((task) =>
         task.id === id ? { ...task, difficulty: newDifficulty } : task
       )
     );
   };
 
 
-  return {tasks, changeTaskStatus, addTask, removeTask,changeTaskDifficulty};
+  return { tasks, changeTaskStatus, addTask, removeTask, changeTaskDifficulty };
 }
