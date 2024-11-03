@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function useTasks(initialTasks) {
+export default function useTasks (initialTasks){
   const [tasks, setTasks] = useState(initialTasks);
 
   // Changing tasks status
