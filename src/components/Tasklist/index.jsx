@@ -1,8 +1,9 @@
 import React from "react";
 import Task from "../Task";
+import '../../App.css'
 
 export default function TaskList({ tasks = [], onChangeStatus, onRemoveTask, onChangeDifficulty }) {
-  if (!tasks.length) return <div>Brak zadań.</div>;
+  if (!tasks.length) return <div class="task" id="emptyTaskList"><h2>Brak zadań</h2></div>;
   return (
     <div>
       {tasks.map((task) => (

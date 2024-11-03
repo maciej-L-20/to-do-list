@@ -2,6 +2,7 @@ import React from "react";
 import { useInput } from "../../hooks/useInput";
 import { useStarRating } from "../../hooks/useStarRating";
 import Difficulty from "../Difficulty";
+import '../../App.css'
 
 export default function AddTaskForm({ onNewTask = f => f }) {
     const [titleProps, resetTitle] = useInput("");
@@ -23,7 +24,7 @@ export default function AddTaskForm({ onNewTask = f => f }) {
     };
 
     return (
-        <form onSubmit={submit}>
+        <form class="addTaskForm" onSubmit={submit}>
             <input {...titleProps} type="text" placeholder="Nazwa zadania" required />
             <input {...detailsProps} type="text" placeholder="Szczegóły" />
             <input {...dateProps} type="date" required />

@@ -1,26 +1,66 @@
 [
   {
     "id": 1,
-    "title": "Przykładowe zadanie",
-    "details": "Opis zadania",
+    "title": "Posprzątać mieszkanie",
+    "details": "Zetrzeć meble, umyć podłogi",
     "time": "2024-11-01T21:35", 
-    "difficulty": 3,
+    "difficulty": 6,
     "status": "oczekujące"
   },
   {
     "id": 2,
-    "title": "Przykładowe zadanie 2",
-    "details": "Opis zadania 2",
-    "time": "2024-11-02T21:35", 
-    "difficulty": 3,
+    "title": "Zrobić projekt na UAIM",
+    "details": "Zaprojektować aplikację TO-DO-LIST w reactcie",
+    "time": "2024-11-06T23:59", 
+    "difficulty": 8,
     "status": "oczekujące"
   },
   {
     "id": 3,
-    "title": "Przykładowe zadanie 3",
-    "details": "Opis zadania 3",
-    "time": "2024-11-03T21:30", 
-    "difficulty": 3,
+    "title": "Obejrzeć mecz",
+    "details": "Barcelona - Espanyol",
+    "time": "2024-11-03T16:15", 
+    "difficulty": 1,
+    "status": "oczekujące"
+  },
+  {
+    "id": 4,
+    "title": "Obejrzeć mecz",
+    "details": "Barcelona - Espanyol",
+    "time": "2024-11-03T16:15", 
+    "difficulty": 1,
+    "status": "oczekujące"
+  },
+  {
+    "id": 5,
+    "title": "Obejrzeć mecz",
+    "details": "Barcelona - Espanyol",
+    "time": "2024-11-03T16:15", 
+    "difficulty": 1,
+    "status": "oczekujące"
+  },
+  {
+    "id": 6,
+    "title": "Obejrzeć mecz",
+    "details": "Barcelona - Espanyol",
+    "time": "2024-11-03T16:15", 
+    "difficulty": 1,
+    "status": "oczekujące"
+  },
+  {
+    "id": 7,
+    "title": "Obejrzeć mecz",
+    "details": "Barcelona - Espanyol",
+    "time": "2024-11-03T16:15", 
+    "difficulty": 1,
+    "status": "oczekujące"
+  },
+  {
+    "id": 8,
+    "title": "Obejrzeć mecz",
+    "details": "Barcelona - Espanyol",
+    "time": "2024-11-03T16:15", 
+    "difficulty": 1,
     "status": "oczekujące"
   }
 ]

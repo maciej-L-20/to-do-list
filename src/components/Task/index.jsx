@@ -1,5 +1,7 @@
 import React from "react";
 import Difficulty from "../Difficulty";
+import '../../App.css';
+
 
 export default function Task({ title, details, time, difficulty, status, onChangeStatus, onRemoveTask, onChangeDifficulty}) {
   // Date and time connection and formatting
@@ -12,25 +14,25 @@ export default function Task({ title, details, time, difficulty, status, onChang
   }) : "Brak daty";
 
   return (
-    <section style={{ border: "1px solid gray", padding: "10px", margin: "10px 0" }}>
-      <h1>{title}</h1>
+    <section class="task">
+      <h2>{title}</h2>
       <p>{details}</p>
       <Difficulty totalStars={10} selectedStars={difficulty} onRate={onChangeDifficulty}/>
       <p>Termin: {formattedTime}</p>
       <p>Status: {status}</p>
 
       {status === "oczekujące" && (
-          <button onClick={onChangeStatus}>Oznacz jako wykonane</button>
+          <button onClick={onChangeStatus} id="doneButton">Oznacz jako wykonane</button>
       )}
       {(status === "wykonane") && (
         <>
-          <button onClick={onChangeStatus}>Oznacz jako niewykonane</button>
-          <button onClick={onRemoveTask}>Usuń zadanie</button>
+          <button onClick={onChangeStatus}id="undoneButton">Oznacz jako niewykonane</button>
+          <button onClick={onRemoveTask} id="removeButton">Usuń zadanie</button>
         </>
       )}
       {(status === "przeterminowane") && (
         <>
-          <button onClick={onRemoveTask}>Usuń zadanie</button>
+          <button onClick={onRemoveTask} id="removeButton">Usuń zadanie</button>
         </>
       )}
     </section>

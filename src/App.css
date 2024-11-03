@@ -1,38 +1,83 @@
-.App {
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #e0e0e0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #ffffff; 
+  border-radius: 8px;
+  margin: 20px; 
+}
+
+h1, h2, h3 {
+  color: #3457D5;
+}
+
+#appTitle {
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
   color: white;
+  font-weight: bolder;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#undoneButton{
+  background-color: #fd5c63;
+}
+#doneButton{
+  background-color: #17B169;
+}
+.task{
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px; 
+  margin: 10px 0;
+}
+#emptyTaskList h2{
+  color:#3D4849;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.addTaskForm {
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+.difficulty {
+  display: flex; 
+  justify-content: center; 
+  margin: 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.addTaskForm input {
+  width: 90%; 
+  padding: 10px;
+  margin: 10px 0; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  font-size: 16px; 
+}
+
+.addTaskForm button {
+  background-color: #3457D5;
 }
