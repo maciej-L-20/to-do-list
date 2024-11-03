@@ -19,12 +19,24 @@ export default function useTasks(initialTasks) {
   };
 
   useEffect(() => {
+    // Uruchamiamy co 5 minut (300000 ms)
+    const intervalId = setInterval(checkOverdueTasks,60000);
+  
+    // Pierwsze wywołanie przy montowaniu komponentu
+    checkOverdueTasks();
+  
+    // Czyszczenie interwału przy odmontowaniu komponentu
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const checkOverdueTasks = () =>
+  {
     const now = new Date().getTime();
 
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
         const dueDate = new Date(task.time).getTime();
-        console.log('NOW: ' + task.time);
+        console.log('NOW: ' + now);
         console.log(task.title + ': ' + task.time);
         if (task.status === "oczekujące" && dueDate < now) {
           return { ...task, status: "przeterminowane" };
@@ -32,7 +44,8 @@ export default function useTasks(initialTasks) {
         return task;
       })
     );
-  }, []);
+  }
+
 
   return { tasks, toggleTaskStatus, addTask };
 }
