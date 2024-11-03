@@ -14,14 +14,18 @@ export default function useTasks(initialTasks) {
     );
   };
 
+  const addTask = (newTask) => {
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+  };
+
   useEffect(() => {
-    const now = new Date().getTime(); // Aktualny czas w milisekundach
+    const now = new Date().getTime();
 
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
-        const dueDate = new Date(task.time).getTime(); // Czas zadania w milisekundach
-
-        // Sprawdzenie, czy zadanie jest przeterminowane, z uwzględnieniem dokładnego czasu
+        const dueDate = new Date(task.time).getTime();
+        console.log('NOW: ' + task.time);
+        console.log(task.title + ': ' + task.time);
         if (task.status === "oczekujące" && dueDate < now) {
           return { ...task, status: "przeterminowane" };
         }
@@ -30,5 +34,5 @@ export default function useTasks(initialTasks) {
     );
   }, []);
 
-  return { tasks, toggleTaskStatus };
+  return { tasks, toggleTaskStatus, addTask };
 }

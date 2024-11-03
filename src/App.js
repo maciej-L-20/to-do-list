@@ -1,17 +1,31 @@
-import logo from './logo.svg';
 import React from 'react';
 import taskData from './tasklist.json';
 import TaskList from './components/Tasklist';
 import useTasks from './hooks/useTasks.jsx';
+import AddTaskForm from './components/AddTaskForm/index.jsx';
+import { v4 } from 'uuid';
 
 function App() {
-  // Wywołanie custom hooka useTasks
-  const { tasks, toggleTaskStatus } = useTasks(taskData);
+  const { tasks, toggleTaskStatus, addTask } = useTasks(taskData);
 
   return (
-    <div>
+    <>
+      <AddTaskForm
+        onNewTask={(title, details, dateTime, difficulty) => {
+          const newTask = {
+            id: v4(),
+            title: title,
+            details: details,
+            time: dateTime,
+            difficulty: difficulty,
+            status: "oczekujące",
+            onToggleStatus: toggleTaskStatus
+          };
+          addTask(newTask);
+        }}
+      />
       <TaskList tasks={tasks} onToggleStatus={toggleTaskStatus} />
-    </div>
+    </>
   );
 }
 
