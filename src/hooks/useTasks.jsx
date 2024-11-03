@@ -51,7 +51,14 @@ export default function useTasks (initialTasks){
       })
     );
   }
+  const changeTaskDifficulty = (id, newDifficulty) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => 
+        task.id === id ? { ...task, difficulty: newDifficulty } : task
+      )
+    );
+  };
 
 
-  return {tasks, changeTaskStatus, addTask, removeTask};
+  return {tasks, changeTaskStatus, addTask, removeTask,changeTaskDifficulty};
 }

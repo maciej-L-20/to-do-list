@@ -6,7 +6,7 @@ import AddTaskForm from './components/AddTaskForm/index.jsx';
 import { v4 } from 'uuid';
 
 function App() {
-  const {tasks, changeTaskStatus, addTask, removeTask} = useTasks(taskData);
+  const {tasks, changeTaskStatus, addTask, removeTask,changeTaskDifficulty} = useTasks(taskData);
 
   return (
     <>
@@ -24,7 +24,7 @@ function App() {
           addTask(newTask);
         }}
       />
-      <TaskList tasks={tasks} onChangeStatus={changeTaskStatus} onRemoveTask={removeTask}/>
+      <TaskList tasks={tasks} onChangeStatus={changeTaskStatus} onRemoveTask={removeTask} onChangeDifficulty={changeTaskDifficulty}/>
     </>
   );
 }

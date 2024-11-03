@@ -1,7 +1,7 @@
 import React from "react";
 import Difficulty from "../Difficulty";
 
-export default function Task({ title, details, time, difficulty, status, onChangeStatus, onRemoveTask }) {
+export default function Task({ title, details, time, difficulty, status, onChangeStatus, onRemoveTask, onChangeDifficulty}) {
   // Date and time connection and formatting
   const formattedTime = time ? new Date(time).toLocaleString("pl-PL", {
     year: "numeric",
@@ -15,7 +15,7 @@ export default function Task({ title, details, time, difficulty, status, onChang
     <section style={{ border: "1px solid gray", padding: "10px", margin: "10px 0" }}>
       <h1>{title}</h1>
       <p>{details}</p>
-      <Difficulty totalStars={10} selectedStars={difficulty} />
+      <Difficulty totalStars={10} selectedStars={difficulty} onRate={onChangeDifficulty}/>
       <p>Termin: {formattedTime}</p>
       <p>Status: {status}</p>
 
