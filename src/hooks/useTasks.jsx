@@ -7,8 +7,13 @@ export default function useTasks(initialTasks) {
   const changeTaskStatus = (id) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
-        if (task.id === id && task.status === "oczekujące") {
-          return { ...task, status: "wykonane" };
+        if (task.id === id) {
+          if (task.status === "oczekujące"){
+            return { ...task, status: "wykonane" }
+          }
+          if (task.status === "wykonane") {
+            return { ...task, status: "oczekujące" }
+          }
         }
         return task;
       })

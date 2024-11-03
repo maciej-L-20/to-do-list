@@ -22,8 +22,16 @@ export default function Task({ title, details, time, difficulty, status, onChang
       {status === "oczekujące" && (
           <button onClick={onChangeStatus}>Oznacz jako wykonane</button>
       )}
-      {(status === "wykonane" || status === "przeterminowane") && (
+      {(status === "wykonane") && (
+        <>
+          <button onClick={onChangeStatus}>Oznacz jako niewykonane</button>
           <button onClick={onRemoveTask}>Usuń zadanie</button>
+        </>
+      )}
+      {(status === "przeterminowane") && (
+        <>
+          <button onClick={onRemoveTask}>Usuń zadanie</button>
+        </>
       )}
     </section>
   );
